@@ -6,6 +6,37 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
+
+
+<?php
+stream_context_set_default([
+		'ssl' => [
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+		]
+]);
+
+
+$spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
+$box=array("$content");
+ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
+ if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
+  $tt="";
+  $n="\r\rASTON INVENTORY <br> \r";
+     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      if(in_array($data[1],$box)){
+       $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
+       $n="\r <br>";	
+      }
+     }
+     fclose($handle);    
+ }
+ else{
+     $tt=("Problem reading csv"); 
+ }
+ 
+ 
+
 if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
@@ -40,8 +71,10 @@ if (!is_null($events['events'])) {
    $result = curl_exec($ch);
    curl_close($ch);
 
-   echo $result . "\r\n";
+   echo $tt . "\r\n";
   }
  }
 }
 echo "OK";
+
+ ?>
