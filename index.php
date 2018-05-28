@@ -9,7 +9,7 @@ $events = json_decode($content, true);
 
 
 $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
-$box=array("$events");
+$box=array("$content");
  if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
  if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
   $tt="";
