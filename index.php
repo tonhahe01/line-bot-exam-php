@@ -27,15 +27,10 @@ $box=array("$content");
  }
   echo $tt;
  
- if ($tt['type'] == 'message' && $tt['message']['type'] == 'text') {
-// Get text sent
-$text = $tt['source']['userId'];
-// Get replyToken
-$replyToken = $tt['replyToken'];
-// Build message to reply back
+
 $messages = [
 'type' => 'text',
-'text' => $text
+'text' => $tt
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
