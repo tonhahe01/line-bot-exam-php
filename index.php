@@ -8,14 +8,6 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 
 
-<?php
-stream_context_set_default([
-		'ssl' => [
-			'verify_peer' => false,
-			'verify_peer_name' => false,
-		]
-]);
-
 $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
 $box=array("$events");
  if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
@@ -35,6 +27,6 @@ $box=array("$events");
  }
   echo $tt;
  
- ?></div>
-
  ?>
+
+ 
