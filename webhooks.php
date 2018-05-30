@@ -9,6 +9,9 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 // Validate parsed JSON data
 
+echo  $events;
+
+/*
 if ( sizeof($request_array['events']) > 0 )
 {
 
