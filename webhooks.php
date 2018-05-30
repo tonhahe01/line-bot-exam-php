@@ -101,7 +101,7 @@ if(!is_null($events)){
 			else{
 			$tt=("Problem reading csv"); 
 			}
-			echo $tt;
+			
 	
                     $textReplyMessage = $tt;      					
 					break;
