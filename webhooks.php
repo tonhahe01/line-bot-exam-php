@@ -88,9 +88,11 @@ if(!is_null($events)){
 				if(in_array($data[1],$box)){
 				$tt.=$n.$data[1]." คงเหลือ  ".$data[11];
 				$n="\r ";	
-				
-			
 				}
+			else {
+				$tt = "ข้อมูลที่คุณพิมพ์ ไม่ตรงกับฐานข้อมูล" ;
+			}	
+				
 			}
 			
 			fclose($handle);    
