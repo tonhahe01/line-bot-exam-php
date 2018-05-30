@@ -89,14 +89,7 @@ if(!is_null($events)){
 				{
 				$tt.=$n.$data[1]." คงเหลือ  ".$data[11];
 				$n="\r ";	
-				
-					if($data[1] = ""){
-					echo = "ไม่พบข้อมูล";
-					}
-					else {
-						echo $tt ;
-					}
-						
+			
 				
 				}
 			
