@@ -69,10 +69,10 @@ if(!is_null($events)){
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
-                case "$userMessage":
+                case $userMessage:
 				
 				
-                    $textReplyMessage = "$userMessage";
+                    $textReplyMessage = $userMessage;
                     
 					
 					break;
