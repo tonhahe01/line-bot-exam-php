@@ -69,15 +69,39 @@ if(!is_null($events)){
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
-                case "A":
-                    $textReplyMessage = "คุณพิมพ์ A";
+                case "$userMessage":
+                     stream_context_set_default([
+		'ssl' => [
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+		]
+]);
+
+$sinven = $_GET["item"];
+$spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
+$box=array("$sinven");
+ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
+ if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
+  $tt="";
+  $n="\r\rASTON INVENTORY <br> \r";
+     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      if(in_array($data[1],$box)){
+       $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
+       $n="\r <br>";	
+      }
+     }
+     fclose($handle);    
+ }
+ else{
+     $tt=("Problem reading csv"); 
+              
+                    $textReplyMessage = "$tt";
                     break;
-                case "B":
-                    $textReplyMessage = "คุณพิมพ์ B";
-                    break;
-                default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
-                    break;                                      
+                
+        
+ }
+  echo $tt
+              
             }
             break;
         default:
