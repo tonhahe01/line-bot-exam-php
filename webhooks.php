@@ -91,7 +91,7 @@ if(!is_null($events)){
 				
 			
 				}
-				
+			}
 			
 			fclose($handle);    
 			}
