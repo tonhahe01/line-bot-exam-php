@@ -88,7 +88,7 @@ if(!is_null($events)){
 								 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 								  if(in_array($data[1],$box)){
 								   $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
-								   $n="\r <br>";	
+								   $n="\r ";	
 								  }
 								 }
 								 fclose($handle);    
