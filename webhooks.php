@@ -90,6 +90,11 @@ if(!is_null($events)){
 				$tt.=$n.$data[1]." คงเหลือ  ".$data[11];
 				$n="\r ";	
 				}
+			else
+			{
+				$tt = "ไม่พบข้อมูล";
+			}
+			
 			}
 		
 			fclose($handle);    
