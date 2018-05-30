@@ -91,3 +91,4 @@ $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
 
+?>
