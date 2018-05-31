@@ -81,16 +81,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
        $n="\r <br>";	
 	  }
      }
-	 $c = strlen($nc);
-	echo $c;
 
-		if($c == "0"){
-			}
-		else {
-			echo $tt;
-			}
-	
-	 
      fclose($handle);    
  }
 
