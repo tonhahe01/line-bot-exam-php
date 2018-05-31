@@ -124,10 +124,10 @@ if(!is_null($events)){
 
                                                                                                                  if($c == "0"){
 
-
+                                                                                                                        $textReplyMessage = "ไม่พบข้อมูล";
                                                                                                                   }
                                                                                                                  else {
-                                                                                                                  echo $tt;
+                                                                                                                      $textReplyMessage = "$tt";
                                                                                                                   }
 
                                                                                                               
@@ -136,7 +136,7 @@ if(!is_null($events)){
                                                                                                           else{
                                                                                                               $tt="Problem reading csv"; 
                                                                                                           }
-                                                                                                           echo $tt;
+                                                                                                           
                                     
                                     
                                     }
