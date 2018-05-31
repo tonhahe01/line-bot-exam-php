@@ -72,7 +72,7 @@ if(!is_null($events)){
                     $textReplyMessage = "คุณพิมพ์ B";
                     break;
                 default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
+                    $textReplyMessage = "ไม่พบข้อมูล";
                     break;                                      
             }
             break;
