@@ -103,38 +103,38 @@ if(!is_null($events)){
                                                                                                            ]
                                                                                                          ]);
 
-                                                                                                         $sinven2 = $_GET["item"];
-                                                                                                         $spreadsheet_url2="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVXnIFDOSIlOdrKAbqLbXsOfj9ZX1FpXFgRVhrUpXamvO26JTNaZTHNdCynf6fpjUn83SSVkRDCnhE/pub?gid=1511270185&single=true&output=csv";
-                                                                                                         $box2=array("$sinven2");
+                                                                                                         $sinven = $_GET["item"];
+                                                                                                         $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVXnIFDOSIlOdrKAbqLbXsOfj9ZX1FpXFgRVhrUpXamvO26JTNaZTHNdCynf6fpjUn83SSVkRDCnhE/pub?gid=1511270185&single=true&output=csv";
+                                                                                                         $box=array("$sinven");
                                                                                                           if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
-                                                                                                          if (($handl2e = fopen($spreadsheet_url2, "r")) !== FALSE) {
-                                                                                                           $tt2="";
-                                                                                                           $nc2 = "";
-                                                                                                           $n2="\r\rDENGO INVENTORY <br> \r";
-                                                                                                              while (($data2 = fgetcsv($handle2, 1000, ",")) !== FALSE) {
-                                                                                                               if(in_array($data[1],$box2)){
-                                                                                                                $tt2.=$n.$data[1]." คงเหลือ  ".$data[11];
-                                                                                                                $nc2 = $data[1];
-                                                                                                                $n=2"\r <br>";	
+                                                                                                          if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
+                                                                                                           $tt="";
+                                                                                                           $nc = "";
+                                                                                                           $n="\r\rDENGO INVENTORY <br> \r";
+                                                                                                              while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                                                                                               if(in_array($data[1],$box)){
+                                                                                                                $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
+                                                                                                                $nc = $data[1];
+                                                                                                                $n="\r <br>";	
                                                                                                                }
                                                                                                               }
                                                                                                            
-                                                                                                            $c2 = strlen($nc2);
-                                                                                                                echo $c2;
+                                                                                                            $c = strlen($nc);
+                                                                                                                echo $c;
 
-                                                                                                                 if($c2 == "0"){
+                                                                                                                 if($c == "0"){
 
-                                                                                                                        $textReplyMessage2 = "ไม่พบข้อมูล";
+                                                                                                                        $textReplyMessage = "ไม่พบข้อมูล";
                                                                                                                   }
                                                                                                                  else {
-                                                                                                                      $textReplyMessage2 = "$tt2";
+                                                                                                                      $textReplyMessage = "$tt";
                                                                                                                   }
 
                                                                                                               
-                                                                                                            fclose($handle2);    
+                                                                                                            fclose($handle);    
                                                                                                           }
                                                                                                           else{
-                                                                                                              $tt2="Problem reading csv"; 
+                                                                                                              $tt="Problem reading csv"; 
                                                                                                           }
                                                                                                            
                                     
