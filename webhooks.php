@@ -109,7 +109,7 @@ if(!is_null($events)){
                                          if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
                                           $tt="";
                                           $nc = "";
-                                          $n="\r\rDENGO INVENTORY <br> \r";
+                                          $n="\r\r คลัง DENGO INVENTORY สินค้า  \r";
                                              while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                                               if(in_array($data[1],$box)){
                                                $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
