@@ -66,15 +66,38 @@ if(!is_null($events)){
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
-                case "A":
-                    $textReplyMessage = "คุณพิมพ์ A";
-                    break;
-                case "B":
-                    $textReplyMessage = "คุณพิมพ์ B";
-                    break;
-                default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
-                    break;                                      
+               $sinven = $_GET["item"];
+$spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
+$box=array("$sinven");
+if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
+	if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
+  $tt="";
+  $nc = "";
+  $n="\r\rASTON INVENTORY <br> \r";
+     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      if(in_array($data[1],$box)){
+       $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
+	  $nc = $data[1];
+       $n="\r <br>";	
+	  }
+     }
+	 $c = strlen($nc);
+	echo $c;
+
+		if($c == "0"){
+			}
+		else {
+			echo $tt;
+			}
+	
+	 
+     fclose($handle);    
+ }
+
+ else{
+     $tt="Problem reading csv"; 
+ }
+              
             }
             break;
         default:
