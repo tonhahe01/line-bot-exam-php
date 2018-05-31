@@ -87,12 +87,12 @@ if(!is_null($events)){
      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
       if(in_array($data[1],$box)){
        $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
-	   @$nc = $data[1];
+	   $nc = $data[1];
        $n="\r <br>";	
 	  }
      }
 	
-	 $c = count(@$nc);
+	 $c = count($nc);
 		if($c == 0){
 			echo "ไม่พบในคลัง";
 			}
