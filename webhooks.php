@@ -94,7 +94,7 @@ if(!is_null($events)){
                                    $c = strlen($nc);.
                                    
                                   echo $c;
-                                       if ($c = 0){
+                                       if ($c == "0"){
                                    
                                        $textReplyMessage = "ไม่พบข้อมูล";
                                     }
