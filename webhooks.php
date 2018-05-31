@@ -78,7 +78,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
 	
 	 $c = strlen($nc);
 
-		if($c == 0){
+		if($c == "0"){
 			echo "ไม่พบในคลัง";
 			}
 		else {
