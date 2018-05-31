@@ -98,15 +98,9 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
      $tt="Problem reading csv"; 
  }
               
-            }
-            break;
-        default:
-            $textReplyMessage = $tt ;
-            break;  
-    }
-}
+    
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
-$textMessageBuilder = new TextMessageBuilder($textReplyMessage);
+$textMessageBuilder = new TextMessageBuilder($tt);
  
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
