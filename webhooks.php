@@ -93,52 +93,7 @@ if(!is_null($events)){
 
                                    $c = strlen($nc);
                                   echo $c;
-
-                                   if($c == "0"){
-                                   
-                                                                                                    stream_context_set_default([
-                                                                                                           'ssl' => [
-                                                                                                            'verify_peer' => false,
-                                                                                                            'verify_peer_name' => false,
-                                                                                                           ]
-                                                                                                         ]);
-
-                                                                                                         $sinven = $_GET["item"];
-                                                                                                         $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVXnIFDOSIlOdrKAbqLbXsOfj9ZX1FpXFgRVhrUpXamvO26JTNaZTHNdCynf6fpjUn83SSVkRDCnhE/pub?gid=1511270185&single=true&output=csv";
-                                                                                                         $box=array("$sinven");
-                                                                                                          if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
-                                                                                                          if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
-                                                                                                           $tt="";
-                                                                                                           $nc = "";
-                                                                                                           $n="\r\rDENGO INVENTORY <br> \r";
-                                                                                                              while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                                                                                               if(in_array($data[1],$box)){
-                                                                                                                $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
-                                                                                                                $nc = $data[1];
-                                                                                                                $n="\r <br>";	
-                                                                                                               }
-                                                                                                              }
-                                                                                                           
-                                                                                                            $c = strlen($nc);
-                                                                                                                echo $c;
-
-                                                                                                                 if($c == "0"){
-
-                                                                                                                        $textReplyMessage = "ไม่พบข้อมูล";
-                                                                                                                  }
-                                                                                                                 else {
-                                                                                                                      $textReplyMessage = "$tt";
-                                                                                                                  }
-
-                                                                                                              
-                                                                                                            fclose($handle);    
-                                                                                                          }
-                                                                                                          else{
-                                                                                                              $tt="Problem reading csv"; 
-                                                                                                          }
-                                                                                                           
-                                    
-                                    
+                                      $textReplyMessage = "ไม่พบข้อมูล";
                                     }
                                    else {
                                     $textReplyMessage = "$tt";
