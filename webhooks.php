@@ -68,9 +68,7 @@ if(!is_null($events)){
                 case "A":
                     $textReplyMessage = "คุณพิมพ์ A";
                     break;
-                case "B":
-                    $textReplyMessage = "คุณพิมพ์ B";
-                    break;
+               
                 default:
                     $textReplyMessage = "ไม่พบข้อมูล";
                     break;                                      
