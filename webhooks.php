@@ -91,7 +91,7 @@ if(!is_null($events)){
                                       }
 
 
-                                   $c = strlen($nc);.
+                                   $c = strlen($nc);
                                    
                                   echo $c;
                                        if ($c == "0"){
