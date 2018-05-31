@@ -83,6 +83,7 @@ if(!is_null($events)){
 			if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
 	if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
   $tt="";
+  $nc = "";			
   $n="\r\rASTON INVENTORY  \r";
      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
       if(in_array($data[1],$box)){
@@ -92,7 +93,7 @@ if(!is_null($events)){
 	  }
      }
 	
-	 $c = count($nc);
+	 $c = strlen($nc);
 		if($c == 0){
 			echo "ไม่พบในคลัง";
 			}
