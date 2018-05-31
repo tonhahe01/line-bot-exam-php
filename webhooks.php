@@ -91,9 +91,12 @@ if(!is_null($events)){
                                       }
 
 
-                                   $c = strlen($nc);
+                                   $c = strlen($nc);.
+                                   
                                   echo $c;
-                                      $textReplyMessage = "ไม่พบข้อมูล";
+                                       if ($c = 0){
+                                   
+                                       $textReplyMessage = "ไม่พบข้อมูล";
                                     }
                                    else {
                                     $textReplyMessage = "$tt";
