@@ -103,7 +103,7 @@ if(!is_null($events)){
                                           ]
                                         ]);
 
-                                        $sinven = $_GET["item"];
+                                        $sinven = $userMessage;
                                         $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVXnIFDOSIlOdrKAbqLbXsOfj9ZX1FpXFgRVhrUpXamvO26JTNaZTHNdCynf6fpjUn83SSVkRDCnhE/pub?gid=1511270185&single=true&output=csv";
                                         $box=array("$sinven");
                                          if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
