@@ -88,7 +88,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
      $tt="Problem reading csv"; 
  }
 			 $c = strlen($nc);
-			if($c == "0"){
+			if($c = 0){
 			$textReplyMessage = "ไม่พบในคลัง";
 			}
 		else {
