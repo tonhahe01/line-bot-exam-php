@@ -76,7 +76,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
      }
 	
 	
-	 $c = strlen($nc);
+	
 
 	
 	
@@ -87,6 +87,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
  else{
      $tt="Problem reading csv"; 
  }
+			 $c = strlen($nc);
 			if($c == "0"){
 			$textReplyMessage = "ไม่พบในคลัง";
 			}
@@ -96,12 +97,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
 
 	
                   					
-					break;
-                default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
-                    break;                                      
-            }
-            break;
+			
         default:
             $textReplyMessage = json_encode($events);
             break;  
