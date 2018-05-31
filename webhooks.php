@@ -61,43 +61,25 @@ $content = file_get_contents('php://input');
  
 // แปลงข้อความรูปแบบ JSON  ให้อยู่ในโครงสร้างตัวแปร array
 $events = json_decode($content, true);
-if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
-	if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
-  $tt="";
-  $nc = "";
-  $n="\r\rASTON INVENTORY <br> \r";
-     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-      if(in_array($data[1],$box)){
-       $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
-	  
-	  $nc = $data[1];
-       $n="\r <br>";	
-	  }
-     }
-	
-	
-	
-
-	
-	
-	 
-     fclose($handle);    
- }
-
- else{
-     $tt="Problem reading csv"; 
- }
-			 $c = strlen($nc);
-			if($c = 0){
-			$textReplyMessage = "ไม่พบในคลัง";
-			}
-		else {
-			  $textReplyMessage = $tt;
-			}
-
-	
-                  					
-			
+if(!is_null($events)){
+    // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
+    $replyToken = $events['events'][0]['replyToken'];
+    $typeMessage = $events['events'][0]['message']['type'];
+    $userMessage = $events['events'][0]['message']['text'];
+    switch ($typeMessage){
+        case 'text':
+            switch ($userMessage) {
+                case "A":
+                    $textReplyMessage = "คุณพิมพ์ A";
+                    break;
+                case "B":
+                    $textReplyMessage = "คุณพิมพ์ B";
+                    break;
+                default:
+                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
+                    break;                                      
+            }
+            break;
         default:
             $textReplyMessage = json_encode($events);
             break;  
@@ -108,4 +90,3 @@ $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
  
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
-?>
