@@ -95,7 +95,7 @@ if(!is_null($events)){
                                   echo $c;
 
                                    if($c == "0"){
-                                    $textReplyMessage = "ไม่พบข้อมูล";
+                                    $textReplyMessage = "123";
                                     }
                                    else {
                                     $textReplyMessage = "$tt";
