@@ -81,26 +81,32 @@ if(!is_null($events)){
 			$spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
 			$box=array("$userMessage");
 			if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
-			if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
-			$tt="";
-			$n="";
-			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-				if(in_array($data[1],$box))
-				{
-				$tt.=$n.$data[1]." คงเหลือ  ".$data[11];
-				$n="\r ";	
-				}
-				else{
-					$tt = "ไม่พบข้อมูล";
-				}
-			
+	if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
+  $tt="";
+  $n="\r\rDENGO INVENTORY <br> \r";
+     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      if(in_array($data[1],$box)){
+       $tt.=$n.$data[1]." คงเหลือ  ".$data[11];
+	   @$nc = $data[1];
+       $n="\r <br>";	
+	  }
+     }
+	
+	 $c = count(@$nc);
+		if($c == 0){
+			echo "ไม่พบในคลัง";
 			}
-		
-			fclose($handle);    
+		else {
+			echo $tt;
 			}
-			else{
-			$tt=("Problem reading csv"); 
-			}
+	
+	 
+     fclose($handle);    
+ }
+
+ else{
+     $tt="Problem reading csv"; 
+ }
 			
 	
                     $textReplyMessage = $tt;      					
