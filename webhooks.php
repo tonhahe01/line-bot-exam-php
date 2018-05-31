@@ -90,11 +90,10 @@ if(!is_null($events)){
                                     }
                                       }
 
-
                                    $c = strlen($nc);
                                    
                                   echo $c;
-                                       if ($c == "0"){
+                    if ($c == "0"){
                                    
                                      stream_context_set_default([
                                           'ssl' => [
