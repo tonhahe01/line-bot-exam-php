@@ -66,7 +66,7 @@ if(!is_null($events)){
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
-               $sinven = $_GET["item"];
+               $sinven = $userMessage;
 $spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSPeOnhVSU6D396bjBcc_92Cm0vwS_pbeVB_-Ix_a_FXIkeCkeXr7SW-JcZHksKFHQ8YGQp2KlfgBnJ/pub?gid=1511270185&single=true&output=csv";
 $box=array("$sinven");
 if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket timeout -->";
@@ -101,7 +101,7 @@ if(!ini_set('default_socket_timeout', 15)) $tt = "<!-- unable to change socket t
             }
             break;
         default:
-            $textReplyMessage = json_encode($events);
+            $textReplyMessage = $tt ;
             break;  
     }
 }
